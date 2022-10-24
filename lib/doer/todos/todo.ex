@@ -3,6 +3,8 @@ defmodule Doer.Todos.Todo do
   import Ecto.Query
   alias Doer.Accounts.User
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
   schema "todos" do
     field :content, :string
     field :done_at, :utc_datetime
