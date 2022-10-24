@@ -19,6 +19,6 @@ defmodule Doer.Todos.Todo do
   def changeset(todo, attrs) do
     todo
     |> cast(attrs, [:content, :user_id, :done_at, :todo_id])
-    |> validate_required([:content, :user_id, :done_at, :todo_id])
+    |> validate_required([:content, :user_id])
   end
 end

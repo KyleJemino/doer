@@ -1,14 +1,14 @@
 defmodule Doer.Todos.Resolvers.TodoResolver do
+  alias Doer.Repo
   alias Doer.Todos.Todo
   import Ecto.Query
 
   def list_todo(_params \\ %{}) do
-    Repo.all(Todos)  
+    Repo.all(Todo)  
   end
 
-  def get_todo(%{"id" => id} = params) do
-    Todo 
-    |> where([t], t.id == ^id)
+  def get_todo(%{"id" => id} = _params) do
+    where(Todo, [t], t.id == ^id)
     |> Repo.one()
   end
 
