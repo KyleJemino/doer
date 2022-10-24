@@ -1,6 +1,8 @@
 defmodule Doer.Todos.Todo do
   use Ecto.Schema
   import Ecto.Query
+  import Ecto.Changeset
+
   alias Doer.Accounts.User
 
   @primary_key {:id, :binary_id, autogenerate: true}
@@ -14,7 +16,7 @@ defmodule Doer.Todos.Todo do
     timestamps()
   end
 
-  def changeset(class, attrs) do
+  def changeset(todo, attrs) do
     todo
     |> cast(attrs, [:content, :user_id, :done_at, :todo_id])
     |> validate_required([:content, :user_id, :done_at, :todo_id])
